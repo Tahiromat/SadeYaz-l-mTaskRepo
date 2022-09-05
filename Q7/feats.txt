@@ -1,0 +1,7 @@
+# EXTRA PARAMETERS : 
+# Hava Durumu, 
+# Ölçüm Bölgesi (Şehirler değişkenlik gösteriyor Rize - Urfa)
+# Elektrik Kesintileri
+# Sanayileşme
+# Bölgedeki nüfus (kişi başına düşen tüketim miktarı!)
+# Elektriğin birim fiyatı (İnsanlar kendi tasarrufuna gidebilir)
