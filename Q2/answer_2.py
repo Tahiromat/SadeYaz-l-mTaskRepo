@@ -23,6 +23,8 @@ df = pd.DataFrame()
 df['NAMES'] = names_list
 df['COMPANIES'] = companies_list
 
+print(df)
+
 uniq_companies_list = df['COMPANIES'].unique()
 
 for c in uniq_companies_list:
@@ -31,3 +33,5 @@ for c in uniq_companies_list:
     df_n.to_csv("/home/tahir/Documents/DataScience/SadeYazılımTask/Q2/" + c + ".csv")
 
 # READ mutiple csv diles AND WRİTE THEM TO CONSOLE : https://www.geeksforgeeks.org/read-multiple-csv-files-into-separate-dataframes-in-python/
+
+

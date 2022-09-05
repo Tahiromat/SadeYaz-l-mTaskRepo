@@ -39,4 +39,6 @@ for x, y in zip(data['IS_ADRESI'], data['EV_ADRESI']):
     smlrty_list.append(similarity)
 
 data['SIMILARITY %'] = smlrty_list
+data.to_csv('categorized_addr.csv', index=False)
+
 print(data)

@@ -44,4 +44,4 @@ print(p)
 p.to_csv('school_city_data.csv', index=False)
 
 # Tüm textleri lower case yap ve daha  sonrasında mahalle içerisindeki mah vs gibi kelimeleri kaldır.
-# NaN değerlerin yerine başka ir değer atamalısın
+# NaN değerlerin yerine başka bir değer atamalısın
