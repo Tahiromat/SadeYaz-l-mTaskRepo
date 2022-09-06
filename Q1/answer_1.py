@@ -56,7 +56,4 @@ for row in range(0, len(data)):
         data.iat[row, index_type] = 'CITY CODE UNKNOWN NOT A PHONE CAN BE SABIT'
 
 data['NUMBER_TYPE'] = data['NUMBER_TYPE'].astype(str).str.replace('None','CITY CODE NOT IN THE LIST', regex=True)
-
 data.to_csv('categorized_phone_nums.csv', index=False)
-
-# https://www.alomaliye.com/alan-kodlari/

@@ -31,7 +31,3 @@ for c in uniq_companies_list:
     df_n = df.where(df['COMPANIES'] == c)
     df_n = df_n.dropna(how='all')
     df_n.to_csv("/home/tahir/Documents/DataScience/SadeYazılımTask/Q2/" + c + ".csv")
-
-# READ mutiple csv diles AND WRİTE THEM TO CONSOLE : https://www.geeksforgeeks.org/read-multiple-csv-files-into-separate-dataframes-in-python/
-
-

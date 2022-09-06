@@ -1,0 +1,37 @@
+proc sql;
+create table okulmahtable(okuladı char(50), mahalle char(50));
+insert into okulmahtable
+values('Kavaklıdere İÖO', 'KAVAKLIDERE')
+values('Etimesgut Anadolu Lisesi', 'ERYAMAN')
+values('Cumhuriyet Lisesi', 'BOZKURT')
+values('Zafer İlkokulu', 'CUMHURİYET');
+select * from okulmahtable;
+
+proc sql;
+create table ililce(il char(50), ilce char(50));
+insert into ililce
+values('ANKARA', 'ÇANKAYA')
+values('ANKARA', 'ALTINDAĞ')
+values('ANKARA', 'ETİMESGUT')
+values('İSTANBUL', 'ŞİŞLİ');
+select * from ililce;
+
+proc sql;
+create table ilcemahalle(ilce char(50), mahalle char(50));
+insert into ilcemahalle
+values('ÇANKAYA', 'KAVAKLIDERE')
+values('ÇANKAYA', 'ESAT')
+values('ÇANKAYA', 'AYRANCI')
+values('ÇANKAYA', 'CUMHURİYET')
+values('ŞİŞLİ', 'BOZKURT')
+values('ŞİŞLİ', 'ESKİŞEHİR')
+values('ŞİŞLİ', 'CUMHURİYET');
+select * from ilcemahalle;
+
+proc sql;
+select om.okuladı, ii.il, im.ilce, im.mahalle
+from okulmahtable as om
+full join ilcemahalle as im
+	on om.mahalle = im.mahalle
+inner join ililce as ii
+	on ii.ilce = ilcemahalle.ilce;

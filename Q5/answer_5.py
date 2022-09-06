@@ -56,8 +56,3 @@ mycursor.execute(query_for_same_tc_diff_person_names)
 result = mycursor.fetchall()
 
 print(result)
-
-
-
-
-# print(f"\n\n\\[INFO]---------- ' : {result[0][0]}\n\n")

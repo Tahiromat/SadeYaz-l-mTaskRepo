@@ -35,34 +35,26 @@ def create_features(df, label=None):
 X, y = create_features(data, label='PJM_Load_MW')
 features_and_target = pd.concat([X, y], axis=1)
 
-
 split_date = '2001-01-01'
 pjme_train = data.loc[data.index <= split_date].copy()
 pjme_test = data.loc[data.index > split_date].copy()
 
-
 model = Prophet()
 model.fit(pjme_train.reset_index().rename(columns={'Datetime':'ds', 'PJM_Load_MW':'y'}))
 forecast = model.predict(df=pjme_test.reset_index().rename(columns={'Datetime':'ds'}))
-
 
 st.write(features_and_target)
 st.write(pjme_train)
 st.write(pjme_test)
 st.write(forecast)
 
-
-fig = px.line(pjme_train, x=pjme_train.index, y = pjme_train['PJM_Load_MW'], labels={'trace 1': "hello", 'trace 2': "hi"})
+fig = px.line(pjme_train, x=pjme_train.index, y = pjme_train['PJM_Load_MW'], title='Daily Electricity Consumption Forecast ')
 fig.add_scatter(x=pjme_test.index, y= pjme_test['PJM_Load_MW'])
 fig.add_scatter(x=forecast['ds'], y= forecast['yhat'])
 st.plotly_chart(fig)
 
-# fig = plot_plotly(model, forecast, trend=True, changepoints=True)
-# st.plotly_chart(fig)
-
 fig2 = plot_components_plotly(model, forecast) 
 st.plotly_chart(fig2)
-
 
 mse  = mean_squared_error(y_true=pjme_test['PJM_Load_MW'], y_pred=forecast['yhat'])
 mae = mean_absolute_error(y_true=pjme_test['PJM_Load_MW'], y_pred=forecast['yhat'])
@@ -73,6 +65,3 @@ def mean_absolute_percentage_error(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
 mape = mean_absolute_percentage_error(y_true=pjme_test['PJM_Load_MW'], y_pred=forecast['yhat'])
-
-
-

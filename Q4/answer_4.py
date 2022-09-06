@@ -36,12 +36,9 @@ ilce_mah_table = pd.DataFrame(ilce_mah_data, columns=['ILCE', 'MAHALLE'])
 
 n = pd.merge(left = il_table, right = il_ilce_table, how='outer')
 
-m = pd.merge(left = n, right = ilce_mah_table, how='outer')
+m = pd.merge(left = n, right = ilce_mah_table, how='inner')
 
 p = pd.merge(left = m, right = okul_mah_table, how='outer', suffixes=('', '_drop')).filter(regex='^(?!.*_drop)')
 print(p)
 
 p.to_csv('school_city_data.csv', index=False)
-
-# Tüm textleri lower case yap ve daha  sonrasında mahalle içerisindeki mah vs gibi kelimeleri kaldır.
-# NaN değerlerin yerine başka bir değer atamalısın
