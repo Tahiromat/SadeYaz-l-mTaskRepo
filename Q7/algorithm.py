@@ -65,3 +65,5 @@ def mean_absolute_percentage_error(y_true, y_pred):
     return np.mean(np.abs((y_true - y_pred) / y_true)) * 100
 
 mape = mean_absolute_percentage_error(y_true=pjme_test['PJM_Load_MW'], y_pred=forecast['yhat'])
+
+st.write(mape)
